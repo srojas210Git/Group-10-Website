@@ -6,11 +6,16 @@
 -->
 <html>
 	<head>
-		<title>Dimension by HTML5 UP</title>
+		<title>Electronic Tool Bench – ECSE 2920 Group 10</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="assets/css/main.css" />
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+			#footer { position: relative; z-index: 1; }
+			.nav-tree { font-family: monospace; font-size: 0.85em; line-height: 1.9; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 1em 1.25em; overflow-x: auto; white-space: pre; }
+			.image-caption { text-align: center; font-size: 0.85em; color: rgba(255,255,255,0.6); margin-top: 0.4em; }
+		</style>
 	</head>
 	<body class="is-preload">
 
@@ -25,19 +30,21 @@
 						<div class="content">
 							<div class="inner">
 								<h1>Electronic Tool Bench</h1>
-								<p> User Manual for ECSE 2920 Group Project</p>
+								<p>User Manual &mdash; ECSE 2920 Group 10</p>
 							</div>
 						</div>
 						<nav>
 							<ul>
 								<li><a href="#start">Start Here</a></li>
+								<li><a href="#project">Project</a></li>
 								<li><a href="#ui">UI</a></li>
 								<li><a href="#fg">Function Gen</a></li>
 								<li><a href="#ohm">Ohmmeter</a></li>
 								<li><a href="#volt">Voltmeter</a></li>
 								<li><a href="#dc">DC Ref</a></li>
 								<li><a href="#freq">Freq Meas</a></li>
-								<li><a href="#trouble">Help</a></li>
+								<li><a href="#safety">Safety</a></li>
+								<li><a href="#trouble">Help &amp; FAQ</a></li>
 							</ul>
 						</nav>
 					</header>
@@ -50,35 +57,59 @@
 							<h2 class="major">Start Here</h2>
 							<span class="image main"><img src="images/setup.jpg" alt="Electronics Tool Bench overview" /></span>
 
-							<p>This website is the user manual for our ECSE 2920 Electronics Tool Bench. It is written for a first-time user and explains how to safely power the system, move through the menu, and use each measurement and signal-generation mode.</p>
+							<p>This website is the user manual for the ECSE 2920 Electronics Tool Bench built by Group 10. It is written for a first-time user and explains how to safely power the system, navigate the menu, and use each measurement and signal-generation mode.</p>
 
 							<h3>Before You Begin</h3>
 							<ul>
+								<li>Only operate the workbench in dry, indoor environments.</li>
 								<li>Make sure the Raspberry Pi and the 24 V supply are connected correctly.</li>
 								<li>Make sure all external test leads are connected to the correct labeled terminals.</li>
-								<li>Do not move wiring while the system is powered.</li>
-								<li>Wait for the LCD startup screen before trying to use the controls.</li>
+								<li>Do not unplug or modify any wiring while the system is powered.</li>
+								<li>Wait for the LCD startup screen before using the controls.</li>
 							</ul>
 
 							<h3>Quick Start</h3>
 							<ol>
 								<li>Power on the Raspberry Pi and bench supply.</li>
-								<li>Wait for the LCD to finish startup.</li>
+								<li>Wait for the LCD to finish startup and display <strong>Group 10 Test Bench</strong>.</li>
 								<li>Rotate the encoder to highlight <strong>Mode Select</strong>.</li>
 								<li>Press the encoder to enter the menu.</li>
-								<li>Rotate to the mode you want to use.</li>
-								<li>Press the encoder to select it.</li>
-								<li>Use <strong>Back</strong> to go up one level or <strong>Main</strong> to return to the top menu.</li>
+								<li>Rotate to the mode you want and press the encoder to select it.</li>
+								<li>Use <strong>Back</strong> to go up one level, or <strong>Main</strong> to return to the top menu.</li>
+								<li>Holding the encoder for 3 seconds also returns you to the start menu from anywhere.</li>
 							</ol>
 
 							<h3>What This Tool Bench Can Do</h3>
 							<ul>
-								<li>Generate square waves</li>
-								<li>Generate sine waves</li>
-								<li>Measure resistance</li>
-								<li>Measure DC voltage</li>
-								<li>Output a DC reference voltage</li>
-								<li>Measure the frequency of an external sine wave</li>
+								<li>Generate square waves (100 Hz &ndash; 10 kHz, &plusmn;10 V, 50% duty cycle)</li>
+								<li>Generate sine waves (1 kHz &ndash; 10 kHz, 0 &ndash; 10 V)</li>
+								<li>Measure resistance (500 &Omega; &ndash; 10 k&Omega;, autoranging)</li>
+								<li>Measure DC voltage (&minus;5 V to +5 V)</li>
+								<li>Output a selectable DC reference voltage (&minus;5 V to +5 V, 0.625 V steps)</li>
+								<li>Measure the frequency of an external sine wave (1 kHz &ndash; 10 kHz)</li>
+							</ul>
+						</article>
+
+						<!-- Project -->
+						<article id="project">
+							<h2 class="major">The Project</h2>
+							<span class="image main"><img src="images/setup.jpg" alt="Full Electronic Tool Bench assembled view" /></span>
+							<p class="image-caption">Full assembled bench &mdash; front view</p>
+
+							<p>The completed Group 10 Electronic Tool Bench integrates a Raspberry Pi, a blue LCD display, a rotary encoder, and custom analog circuitry into a single benchtop unit.</p>
+
+							<span class="image main"><img src="images/ui.jpg" alt="LCD display and rotary encoder close-up" /></span>
+							<p class="image-caption">LCD display and rotary encoder interface</p>
+
+							<h3>System Overview</h3>
+							<ul>
+								<li><strong>Microcontroller:</strong> Raspberry Pi</li>
+								<li><strong>Display:</strong> Blue 16&times;2 LCD</li>
+								<li><strong>Input:</strong> Rotary encoder with push button</li>
+								<li><strong>Power rails:</strong> &plusmn;12 V (60 mA recommended, 1 A absolute max)</li>
+								<li><strong>GPIO limit:</strong> 16 mA per pin</li>
+								<li><strong>Outputs:</strong> High-impedance function generator and DC reference terminals</li>
+								<li><strong>Inputs:</strong> Labeled terminals for voltmeter, ohmmeter, and frequency measurement</li>
 							</ul>
 						</article>
 
@@ -87,37 +118,58 @@
 							<h2 class="major">Controls and UI</h2>
 							<span class="image main"><img src="images/ui.jpg" alt="LCD and rotary encoder interface" /></span>
 
-							<p>The system is controlled using the LCD and a rotary encoder with a push button. All menu navigation is done with this control.</p>
+							<p>All interaction is done through a rotary encoder with push-button and a blue LCD display. The cursor position is marked by <strong>&gt;</strong> and all other options by <strong>&#42;</strong>.</p>
 
-							<h3>Controls</h3>
+							<h3>Encoder Controls</h3>
 							<ul>
-								<li><strong>Rotate encoder:</strong> move the cursor through menu options</li>
-								<li><strong>Press encoder:</strong> select the highlighted option</li>
-								<li><strong>Back:</strong> return to the previous menu level</li>
-								<li><strong>Main:</strong> return to the main screen</li>
+								<li><strong>Rotate clockwise:</strong> move cursor down one row</li>
+								<li><strong>Rotate counterclockwise:</strong> move cursor up one row</li>
+								<li><strong>Press once:</strong> select the highlighted option</li>
+								<li><strong>Hold 3 seconds:</strong> return to the start menu from anywhere</li>
+								<li><strong>Back (menu option):</strong> return to the previous menu level</li>
+								<li><strong>Main (menu option):</strong> return to the main screen</li>
 							</ul>
 
-							<h3>Main Menu</h3>
-							<ul>
-								<li>OFF</li>
-								<li>Mode Select</li>
-							</ul>
+							<h3>Adjusting a Value</h3>
+							<p>When you select a value to edit, the encoder enters Edit Mode. Rotating slowly changes the value in small increments; rotating faster changes it by a larger amount. Press the encoder to confirm and apply the displayed value. Hold the encoder for 3 seconds to exit the edit menu and return to the previous menu.</p>
+							<p>Note: selecting DC Reference from the Voltmeter menu does not set a value &mdash; it only redirects the measurement path. This is the only exception to the press-to-set behavior.</p>
 
-							<h3>Mode Select Options</h3>
-							<ul>
-								<li>Function Generator</li>
-								<li>Ohmmeter</li>
-								<li>Voltmeter</li>
-								<li>DC Reference</li>
-								<li>Frequency Measurement</li>
-								<li>Back</li>
-								<li>Main</li>
-							</ul>
+							<h3>Navigation Tree</h3>
+							<div class="nav-tree">Main Menu: Group 10 Test Bench
+  ├─ Mode Select
+  │   ├─ Function Generator
+  │   │   ├─ Type        → Square / Sine
+  │   │   ├─ Amplitude   → Amp: +/- X V
+  │   │   ├─ Frequency   → Freq: X Hz
+  │   │   ├─ Output      → On / Off
+  │   │   ├─ Back
+  │   │   └─ Main
+  │   ├─ Ohmmeter
+  │   │   ├─ Resistance  → Resistance: X Ω
+  │   │   ├─ Back
+  │   │   └─ Main
+  │   ├─ Voltmeter
+  │   │   ├─ Source      → External / Internal Reference
+  │   │   ├─ Voltage     → voltage: X V
+  │   │   ├─ Back
+  │   │   └─ Main
+  │   ├─ DC Reference
+  │   │   ├─ Voltage Value Input → V-ref: +/- X V
+  │   │   ├─ Output      → On / Off
+  │   │   ├─ Back
+  │   │   └─ Main
+  │   ├─ Frequency Measurement
+  │   │   ├─ Frequency   → Hz: X Hz
+  │   │   ├─ Back
+  │   │   └─ Main
+  │   ├─ Back
+  │   └─ Main
+  └─ Off / Exit</div>
 
 							<h3>Navigation Tips</h3>
 							<ul>
-								<li>If you are unsure where you are in the menu, select <strong>Main</strong>.</li>
-								<li>When leaving an output mode, the output should return to its safe default off state.</li>
+								<li>If you are unsure where you are, hold the encoder for 3 seconds or select <strong>Main</strong>.</li>
+								<li>When leaving any output mode, the output returns to its safe default off state.</li>
 								<li>Always check the LCD before connecting or disconnecting signals.</li>
 							</ul>
 						</article>
@@ -127,41 +179,38 @@
 							<h2 class="major">Function Generator</h2>
 							<span class="image main"><img src="images/function-generator.jpg" alt="Function generator display" /></span>
 
-							<p>The Function Generator mode is used to create either a square wave or a sine wave. The user can select waveform type, frequency, amplitude, and whether the output is on or off.</p>
+							<p>The Function Generator produces either a zero-centered square wave or a positive-only sine wave. Connect your circuit to the high-impedance output terminal before enabling output.</p>
 
-							<h3>How to Enter This Mode</h3>
+							<h3>How to Use</h3>
 							<ol>
-								<li>From <strong>Mode Select</strong>, choose <strong>Function Generator</strong>.</li>
-								<li>Select <strong>Type</strong> to choose the waveform.</li>
-								<li>Select <strong>Frequency</strong> to set the output frequency.</li>
-								<li>Select <strong>Amplitude</strong> to set the output amplitude.</li>
-								<li>Select <strong>Output</strong> and turn it <strong>On</strong>.</li>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; Function Generator</strong>.</li>
+								<li>Select <strong>Type</strong> and choose <strong>Square</strong> or <strong>Sine</strong>.</li>
+								<li>Select <strong>Frequency &gt; Input Frequency</strong> and use the encoder to set the desired value.</li>
+								<li>Select <strong>Amplitude &gt; Input Amplitude</strong> and dial in your peak voltage.</li>
+								<li>Select <strong>Output</strong> and choose <strong>On</strong>.</li>
+								<li>The LCD will display the live waveform settings while the output is active.</li>
 							</ol>
 
 							<h3>Square Wave</h3>
 							<ul>
-								<li>Centered around 0 V</li>
-								<li>50% duty cycle</li>
-								<li>Adjustable frequency</li>
-								<li>Adjustable amplitude</li>
+								<li>Centered at 0 V (symmetric positive and negative swing)</li>
+								<li>Fixed 50% duty cycle</li>
+								<li>Frequency range: 100 Hz to 10 kHz</li>
+								<li>Amplitude adjustable up to &plusmn;10 V</li>
 							</ul>
 
 							<h3>Sine Wave</h3>
 							<ul>
-								<li>Positive voltage only</li>
-								<li>0 V to 10 V amplitude range</li>
-								<li>1 kHz to 10 kHz frequency range</li>
-								<li>500 Hz frequency steps</li>
+								<li>Positive voltage only (0 V to 10 V)</li>
+								<li>Amplitude adjustable in 0.625 V steps</li>
+								<li>Frequency range: 1 kHz to 10 kHz in 500 Hz steps</li>
 							</ul>
-
-							<h3>What the Display Shows</h3>
-							<p>When output is on, the LCD shows the active waveform settings so the user can confirm the selected type, frequency, and amplitude.</p>
 
 							<h3>Important Notes</h3>
 							<ul>
-								<li>When you leave this mode using <strong>Back</strong> or <strong>Main</strong>, the output should default to off.</li>
-								<li>Make sure the output is connected to the correct labeled terminal before enabling it.</li>
-								<li>This output is intended to be high impedance.</li>
+								<li>This output is high impedance &mdash; do not drive heavy loads.</li>
+								<li>Never apply an external voltage into the function generator output terminals.</li>
+								<li>When leaving this mode via <strong>Back</strong> or <strong>Main</strong>, the output defaults to off.</li>
 							</ul>
 						</article>
 
@@ -170,29 +219,26 @@
 							<h2 class="major">Ohmmeter</h2>
 							<span class="image main"><img src="images/ohmmeter.jpg" alt="Ohmmeter screen and resistor input" /></span>
 
-							<p>The Ohmmeter measures an external resistor and displays the measured value on the LCD.</p>
+							<p>The Ohmmeter measures an external resistor and displays the value on the LCD. It autoranges within its supported range with no manual range selection needed.</p>
 
 							<h3>Measurement Range</h3>
 							<ul>
-								<li>Designed for approximately 500 &Omega; to 10 k&Omega;</li>
-								<li>Autoranging within the supported design range</li>
+								<li>500 &Omega; to 10 k&Omega; (autoranging)</li>
+								<li>The display also shows your measurement threshold and tolerance (e.g., 1000 &Omega; &plusmn; Y &Omega;)</li>
 							</ul>
 
-							<h3>How to Use the Ohmmeter</h3>
+							<h3>How to Use</h3>
 							<ol>
-								<li>Connect the unknown resistor to the labeled ohmmeter terminals.</li>
-								<li>From <strong>Mode Select</strong>, choose <strong>Ohmmeter</strong>.</li>
-								<li>Wait for the measurement to stabilize on the LCD.</li>
+								<li>Connect the unknown resistor to the labeled ohmmeter input terminals.</li>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; Ohmmeter</strong>.</li>
+								<li>Wait for the reading to stabilize on the LCD.</li>
 								<li>Read the displayed resistance value.</li>
 							</ol>
 
-							<h3>What the Display Means</h3>
-							<p>The LCD shows the measured resistance and may also show a threshold or tolerance value depending on the current software version.</p>
-
 							<h3>Best Practices</h3>
 							<ul>
-								<li>Only measure resistors within the supported range.</li>
-								<li>Make sure the resistor is not connected to another powered circuit.</li>
+								<li>Only measure resistors within the 500 &Omega; &ndash; 10 k&Omega; range.</li>
+								<li><strong>Never connect the ohmmeter to a live circuit.</strong> The component must be isolated and fully depowered before measuring.</li>
 								<li>Wait briefly for the reading to settle before recording the value.</li>
 							</ul>
 						</article>
@@ -202,30 +248,29 @@
 							<h2 class="major">Voltmeter</h2>
 							<span class="image main"><img src="images/voltmeter.jpg" alt="Voltmeter screen and voltage input" /></span>
 
-							<p>The Voltmeter reads a DC voltage and displays the result on the LCD. It can measure either an external voltage or the system's internal DC reference.</p>
+							<p>The Voltmeter measures DC voltage and displays the result alongside a tolerance value (e.g., 2.5 V &plusmn; 0.3125 V). It can read an external circuit or verify the internal DC Reference output.</p>
 
 							<h3>Measurement Range</h3>
 							<ul>
-								<li>Designed for approximately -5 V to +5 V DC</li>
+								<li>&minus;5 V to +5 V DC</li>
 							</ul>
 
 							<h3>Source Options</h3>
 							<ul>
-								<li><strong>External:</strong> reads a voltage applied at the external voltmeter input</li>
-								<li><strong>Internal Reference:</strong> reads the DC Reference output through the internal path</li>
+								<li><strong>External:</strong> measures a voltage at the external voltmeter input probes</li>
+								<li><strong>Internal Reference:</strong> reroutes the voltmeter to read the DC Reference output through the internal path</li>
 							</ul>
 
-							<h3>How to Use the Voltmeter</h3>
+							<h3>How to Use</h3>
 							<ol>
-								<li>From <strong>Mode Select</strong>, choose <strong>Voltmeter</strong>.</li>
-								<li>Select <strong>Source</strong>.</li>
-								<li>Choose <strong>External</strong> or <strong>Internal Reference</strong>.</li>
-								<li>If using external mode, connect the signal to the labeled voltmeter input.</li>
-								<li>Read the displayed voltage from the LCD.</li>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; Voltmeter</strong>.</li>
+								<li>Select <strong>Source</strong> and choose <strong>External</strong> or <strong>Internal Reference</strong>.</li>
+								<li>If using External, connect your signal to the labeled voltmeter input.</li>
+								<li>Read the live voltage and tolerance on the LCD.</li>
 							</ol>
 
-							<h3>Helpful Note</h3>
-							<p>If <strong>Internal Reference</strong> is selected, the interface may take you into the DC Reference path so the user can set and verify the internal source value.</p>
+							<h3>Note</h3>
+							<p>If <strong>Internal Reference</strong> is selected, the interface may navigate into the DC Reference path so you can set and verify the internal source value. Pressing a value in this path does not set it &mdash; this is expected behavior.</p>
 						</article>
 
 						<!-- DC Reference -->
@@ -233,29 +278,26 @@
 							<h2 class="major">DC Reference</h2>
 							<span class="image main"><img src="images/dc-reference.jpg" alt="DC reference control page" /></span>
 
-							<p>The DC Reference mode generates a selectable DC voltage reference that can be viewed on the LCD and measured using the voltmeter.</p>
+							<p>The DC Reference generates a precise, selectable DC voltage that can be verified live with the internal voltmeter. This is a high-impedance reference source and is not designed to supply current to power heavy loads.</p>
 
 							<h3>Output Range</h3>
 							<ul>
-								<li>-5 V to +5 V</li>
-								<li>0.625 V steps</li>
+								<li>&minus;5 V to +5 V, adjustable in 0.625 V steps</li>
 							</ul>
 
-							<h3>How to Use the DC Reference</h3>
+							<h3>How to Use</h3>
 							<ol>
-								<li>From <strong>Mode Select</strong>, choose <strong>DC Reference</strong>.</li>
-								<li>Select <strong>Voltage Value Input</strong>.</li>
-								<li>Rotate the encoder to choose the desired voltage.</li>
-								<li>Return to <strong>Output</strong>.</li>
-								<li>Select <strong>On</strong> to enable the output.</li>
-								<li>Use the voltmeter display to confirm the generated value.</li>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; DC Reference</strong>.</li>
+								<li>Select <strong>Voltage Value Input</strong> and rotate the encoder to your desired level.</li>
+								<li>Press the encoder to confirm the value.</li>
+								<li>Select <strong>Output</strong> and choose <strong>On</strong>.</li>
+								<li>The UI will use the internal voltmeter to display the live output voltage for verification.</li>
 							</ol>
 
 							<h3>Important Notes</h3>
 							<ul>
-								<li>This is a reference output, not a power supply.</li>
-								<li>It is intended for high-impedance use and should not be used to drive heavy loads.</li>
-								<li>When leaving this mode through <strong>Back</strong> or <strong>Main</strong>, the output should default to off.</li>
+								<li>This is a reference output, not a power supply. Do not drive heavy loads.</li>
+								<li>When leaving this mode via <strong>Back</strong> or <strong>Main</strong>, the output defaults to off.</li>
 							</ul>
 						</article>
 
@@ -264,64 +306,97 @@
 							<h2 class="major">Frequency Measurement</h2>
 							<span class="image main"><img src="images/frequency.jpg" alt="Frequency measurement mode" /></span>
 
-							<p>This mode measures the frequency of an external sine wave and reports the result on the LCD.</p>
+							<p>This mode measures the frequency of an incoming external sine wave and displays the live reading on the LCD.</p>
 
 							<h3>Supported Input</h3>
 							<ul>
-								<li>External sine wave input</li>
-								<li>Designed for approximately 1 kHz to 10 kHz</li>
+								<li>External sine wave only</li>
+								<li>Calibrated for 1 kHz to 10 kHz</li>
 							</ul>
 
-							<h3>How to Use Frequency Measurement</h3>
+							<h3>How to Use</h3>
 							<ol>
-								<li>Connect the external sine wave source to the labeled frequency measurement input.</li>
-								<li>From <strong>Mode Select</strong>, choose <strong>Frequency Measurement</strong>.</li>
+								<li>Connect the external sine wave source to the labeled frequency measurement input terminal.</li>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; Frequency Measurement</strong>.</li>
 								<li>Wait for the LCD reading to stabilize.</li>
 								<li>Read the measured frequency value.</li>
 							</ol>
 
 							<h3>Best Practices</h3>
 							<ul>
-								<li>Use a clean sine-wave input from an external source.</li>
-								<li>Make sure the signal is connected to the correct input terminal.</li>
-								<li>If no value appears, verify that the source is active and within the supported range.</li>
+								<li>Use a clean sine wave from a known source.</li>
+								<li>Confirm the signal is at the correct input terminal.</li>
+								<li>If no value appears, verify the source is active and within the 1 kHz &ndash; 10 kHz range.</li>
 							</ul>
 						</article>
 
-						<!-- Troubleshooting -->
+						<!-- Safety -->
+						<article id="safety">
+							<h2 class="major">Safety Instructions</h2>
+							<span class="image main"><img src="images/troubleshooting.jpg" alt="Safety section" /></span>
+
+							<h3>General Operating Environment</h3>
+							<ul>
+								<li>Operate only in dry, indoor environments. High humidity, extreme heat, or extreme cold can cause malfunctions and affect readings.</li>
+								<li>Do not unplug, modify, or rewire the workbench in any way, especially while powered.</li>
+							</ul>
+
+							<h3>Power Supply &amp; Thermal Limits</h3>
+							<ul>
+								<li>Maximum recommended current on the &plusmn;12 V rails: <strong>60 mA</strong>. Absolute maximum: 1 A.</li>
+								<li>Maximum current per GPIO pin: <strong>16 mA</strong> &mdash; do not exceed this.</li>
+								<li>The power supply can become very hot under load. Do not touch internal components while powered.</li>
+								<li>Wait at least 5 minutes after unplugging before touching any internal components.</li>
+							</ul>
+
+							<h3>Signal Input Limits</h3>
+							<ul>
+								<li>Do not exceed the rated input voltage range on any terminal.</li>
+								<li>Never apply an external voltage into the function generator output terminals.</li>
+								<li><strong>Ohmmeter:</strong> always isolate and depower the component before measuring. Never connect to a live circuit.</li>
+							</ul>
+
+							<h3>Emergency Procedure</h3>
+							<ul>
+								<li>If the bench smokes, smells unusual, sparks, or behaves erratically &mdash; <strong>immediately disconnect power and step back.</strong></li>
+								<li>Do not touch the circuit until at least 10 minutes have passed and all signs of active hazards are gone.</li>
+							</ul>
+						</article>
+
+						<!-- Troubleshooting and FAQ -->
 						<article id="trouble">
-							<h2 class="major">Troubleshooting and Safety</h2>
+							<h2 class="major">Troubleshooting &amp; FAQ</h2>
 							<span class="image main"><img src="images/troubleshooting.jpg" alt="Troubleshooting section" /></span>
 
 							<h3>Common Problems</h3>
 							<ul>
-								<li><strong>The LCD is on, but nothing changes:</strong> check the encoder wiring and restart the system.</li>
-								<li><strong>No waveform output:</strong> verify that Output is set to On and the correct waveform mode is selected.</li>
-								<li><strong>Voltmeter reading is incorrect:</strong> confirm the selected source and check the signal connection.</li>
-								<li><strong>Ohmmeter reading is unstable:</strong> make sure the resistor is connected firmly and is not attached to a powered circuit.</li>
-								<li><strong>No frequency reading:</strong> confirm that a sine wave is present and connected to the correct input.</li>
-							</ul>
-
-							<h3>Safety Notes</h3>
-							<ul>
-								<li>Do not hot-plug wiring while the system is powered.</li>
-								<li>Do not exceed the intended input voltage range.</li>
-								<li>Use the DC Reference only as a reference source, not as a load-driving supply.</li>
-								<li>Double-check terminal labels before turning on outputs.</li>
+								<li><strong>LCD is on but nothing responds:</strong> check the encoder wiring and restart the system.</li>
+								<li><strong>No waveform output:</strong> verify Output is set to On and the correct waveform type is selected.</li>
+								<li><strong>Voltmeter reading looks wrong:</strong> confirm the selected source (External vs. Internal Reference) and check the signal connection.</li>
+								<li><strong>Ohmmeter reading is unstable:</strong> ensure the resistor is firmly connected and completely isolated from any powered circuit.</li>
+								<li><strong>No frequency reading:</strong> confirm a sine wave is present at the correct input terminal within the 1 kHz &ndash; 10 kHz range.</li>
+								<li><strong>DC Reference output seems off:</strong> use the Internal Reference voltmeter path to verify the actual output voltage.</li>
 							</ul>
 
 							<h3>FAQ</h3>
 							<ul>
-								<li><strong>Why does the output turn off when I leave a menu?</strong> This is the intended safe default behavior.</li>
-								<li><strong>Can I use the voltmeter on any signal?</strong> Only within the supported DC input range.</li>
-								<li><strong>Can I use the ohmmeter on an in-circuit resistor?</strong> No. Remove the resistor from powered circuitry first.</li>
+								<li><strong>Why does the output turn off when I leave a menu?</strong> This is intentional safe default behavior to prevent unintended signals.</li>
+								<li><strong>Can I use the voltmeter on any signal?</strong> Only DC signals within &minus;5 V to +5 V. Do not exceed the input range.</li>
+								<li><strong>Can I measure an in-circuit resistor?</strong> No. Remove it from any powered circuit and isolate it completely before measuring.</li>
+								<li><strong>What does holding the encoder do?</strong> Holding for 3 seconds returns you to the start menu from anywhere in the menu.</li>
+								<li><strong>Why won't a value set when I select DC Reference from the Voltmeter menu?</strong> That path only redirects the measurement source &mdash; it does not set a voltage value. This is expected behavior.</li>
+								<li><strong>Can the DC Reference power a circuit?</strong> No. It is a high-impedance reference only and is not designed to drive loads.</li>
 							</ul>
 						</article>
 
+					</div>
+
 				<!-- Footer -->
-			<footer id="footer">
-				<p class="copyright">&copy; Untitled. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
-			</footer>
+				<footer id="footer">
+					<p class="copyright">&copy; ECSE 2920 Group 10. Design: <a href="https://html5up.net">HTML5 UP</a>.</p>
+				</footer>
+
+			</div>
 
 		<!-- Scripts -->
 			<script src="assets/js/jquery.min.js"></script>
