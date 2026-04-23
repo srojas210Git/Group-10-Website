@@ -55,9 +55,8 @@
 						<!-- Start Here -->
 						<article id="start">
 							<h2 class="major">Start Here</h2>
-							<span class="image main"><img src="images/setup.jpg" alt="Electronics Tool Bench overview" /></span>
 
-							<p>This website is the user manual for the ECSE 2920 Electronics Tool Bench built by Group 10. It is written for a first-time user and explains how to safely power the system, navigate the menu, and use each measurement and signal-generation mode.</p>
+							<p>This is the user manual for the ECSE 2920 Electronics Tool Bench built by Group 10. It is written for a first-time user and explains how to safely power the system, navigate the menu, and use each measurement and signal-generation mode.</p>
 
 							<h3>Before You Begin</h3>
 							<ul>
@@ -70,7 +69,11 @@
 
 							<h3>Quick Start</h3>
 							<ol>
-								<li>Power on the Raspberry Pi and bench supply.</li>
+								<li>Plug in the power cable <strong>first</strong>, then plug in the Raspberry Pi.</li>
+								<ul>
+									<li>Power cable plugs into back of device</li>
+									<li>USB C cable plugs into Raspberry Pi</li>
+								</ul>
 								<li>Wait for the LCD to finish startup and display <strong>Group 10 Test Bench</strong>.</li>
 								<li>Rotate the encoder to highlight <strong>Mode Select</strong>.</li>
 								<li>Press the encoder to enter the menu.</li>
@@ -93,12 +96,12 @@
 						<!-- Project -->
 						<article id="project">
 							<h2 class="major">The Project</h2>
-							<span class="image main"><img src="images/setup.jpg" alt="Full Electronic Tool Bench assembled view" /></span>
+							<span class="image main"><img src="images/full_bench.jpg" alt="Full Electronic Tool Bench assembled view" /></span>
 							<p class="image-caption">Full assembled bench &mdash; front view</p>
 
 							<p>The completed Group 10 Electronic Tool Bench integrates a Raspberry Pi, a blue LCD display, a rotary encoder, and custom analog circuitry into a single benchtop unit.</p>
 
-							<span class="image main"><img src="images/ui.jpg" alt="LCD display and rotary encoder close-up" /></span>
+							<span class="image main"><img src="images/power_bench_on.png" alt="LCD display and rotary encoder close-up" /></span>
 							<p class="image-caption">LCD display and rotary encoder interface</p>
 
 							<h3>System Overview</h3>
@@ -106,7 +109,7 @@
 								<li><strong>Microcontroller:</strong> Raspberry Pi</li>
 								<li><strong>Display:</strong> Blue 16&times;2 LCD</li>
 								<li><strong>Input:</strong> Rotary encoder with push button</li>
-								<li><strong>Power rails:</strong> &plusmn;12 V (60 mA recommended, 1 A absolute max)</li>
+								<li><strong>Power rails:</strong> &plusmn;12 V</li>
 								<li><strong>GPIO limit:</strong> 16 mA per pin</li>
 								<li><strong>Outputs:</strong> High-impedance function generator and DC reference terminals</li>
 								<li><strong>Inputs:</strong> Labeled terminals for voltmeter, ohmmeter, and frequency measurement</li>
@@ -116,7 +119,7 @@
 						<!-- UI -->
 						<article id="ui">
 							<h2 class="major">Controls and UI</h2>
-							<span class="image main"><img src="images/ui.jpg" alt="LCD and rotary encoder interface" /></span>
+							<span class="image main"><img src="images/UI.png" alt="LCD and rotary encoder interface" /></span>
 
 							<p>All interaction is done through a rotary encoder with push-button and a blue LCD display. The cursor position is marked by <strong>&gt;</strong> and all other options by <strong>&#42;</strong>.</p>
 
@@ -177,7 +180,7 @@
 						<!-- Function Generator -->
 						<article id="fg">
 							<h2 class="major">Function Generator</h2>
-							<span class="image main"><img src="images/function-generator.jpg" alt="Function generator display" /></span>
+							<span class="image main"><img src="images/func_display.png" alt="Function generator display" /></span>
 
 							<p>The Function Generator produces either a zero-centered square wave or a positive-only sine wave. Connect your circuit to the high-impedance output terminal before enabling output.</p>
 
@@ -217,7 +220,7 @@
 						<!-- Ohmmeter -->
 						<article id="ohm">
 							<h2 class="major">Ohmmeter</h2>
-							<span class="image main"><img src="images/ohmmeter.jpg" alt="Ohmmeter screen and resistor input" /></span>
+							<span class="image main"><img src="images/ohm.png" alt="Ohmmeter screen and resistor input" /></span>
 
 							<p>The Ohmmeter measures an external resistor and displays the value on the LCD. It autoranges within its supported range with no manual range selection needed.</p>
 
@@ -246,7 +249,7 @@
 						<!-- Voltmeter -->
 						<article id="volt">
 							<h2 class="major">Voltmeter</h2>
-							<span class="image main"><img src="images/voltmeter.jpg" alt="Voltmeter screen and voltage input" /></span>
+							<span class="image main"><img src="images/volt.png" alt="Voltmeter screen and voltage input" /></span>
 
 							<p>The Voltmeter measures DC voltage and displays the result alongside a tolerance value (e.g., 2.5 V &plusmn; 0.3125 V). It can read an external circuit or verify the internal DC Reference output.</p>
 
@@ -276,7 +279,7 @@
 						<!-- DC Reference -->
 						<article id="dc">
 							<h2 class="major">DC Reference</h2>
-							<span class="image main"><img src="images/dc-reference.jpg" alt="DC reference control page" /></span>
+							<span class="image main"><img src="images/dc.png" alt="DC reference control page" /></span>
 
 							<p>The DC Reference generates a precise, selectable DC voltage that can be verified live with the internal voltmeter. This is a high-impedance reference source and is not designed to supply current to power heavy loads.</p>
 
@@ -304,7 +307,7 @@
 						<!-- Frequency Measurement -->
 						<article id="freq">
 							<h2 class="major">Frequency Measurement</h2>
-							<span class="image main"><img src="images/frequency.jpg" alt="Frequency measurement mode" /></span>
+							<span class="image main"><img src="images/freq.png" alt="Frequency measurement mode" /></span>
 
 							<p>This mode measures the frequency of an incoming external sine wave and displays the live reading on the LCD.</p>
 
@@ -333,7 +336,6 @@
 						<!-- Safety -->
 						<article id="safety">
 							<h2 class="major">Safety Instructions</h2>
-							<span class="image main"><img src="images/troubleshooting.jpg" alt="Safety section" /></span>
 
 							<h3>General Operating Environment</h3>
 							<ul>
@@ -366,7 +368,6 @@
 						<!-- Troubleshooting and FAQ -->
 						<article id="trouble">
 							<h2 class="major">Troubleshooting &amp; FAQ</h2>
-							<span class="image main"><img src="images/troubleshooting.jpg" alt="Troubleshooting section" /></span>
 
 							<h3>Common Problems</h3>
 							<ul>
