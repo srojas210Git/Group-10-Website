@@ -15,10 +15,6 @@
 			#footer { position: relative; z-index: 1; }
 			.nav-tree { font-family: monospace; font-size: 0.85em; line-height: 1.9; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); border-radius: 6px; padding: 1em 1.25em; overflow-x: auto; white-space: pre; }
 			.image-caption { text-align: center; font-size: 0.85em; color: rgba(255,255,255,0.6); margin-top: 0.4em; }
-			.video-block { margin-bottom: 2em; }
-			.video-block h3 { margin-bottom: 0.5em; }
-			.video-wrapper { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.15); }
-			.video-wrapper iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 		</style>
 	</head>
 	<body class="is-preload">
@@ -47,7 +43,6 @@
 								<li><a href="#volt">Voltmeter</a></li>
 								<li><a href="#dc">DC Ref</a></li>
 								<li><a href="#freq">Freq Meas</a></li>
-								<li><a href="#videos">Videos</a></li>
 								<li><a href="#safety">Safety</a></li>
 								<li><a href="#trouble">Help &amp; FAQ</a></li>
 							</ul>
@@ -75,7 +70,7 @@
 							<h3>Quick Start</h3>
 							<ol>
 								<li>Plug in the power cable <strong>first</strong>, then plug in the Raspberry Pi.
-									<ul style="margin-bottom: 0;">
+									<ul>
 										<li>Power cable plugs into the back of the device.</li>
 										<li>USB-C cable plugs into the Raspberry Pi.</li>
 									</ul>
@@ -194,10 +189,10 @@
 							<ol>
 								<li>Connect a BNC cable from your oscilloscope to the respective hook clip on the front panel of the bench.</li>
 								<li>Attach the oscilloscope's positive probe tip to the correct color-coded hook on the front panel:
-									<ul style="margin-bottom: 0;">
+									<ul>
 										<li><strong>Sine wave &rarr; Green hook.</strong> Use this hook when generating a sine wave.</li>
 										<li><strong>Square wave &rarr; Yellow hook.</strong> Use this hook when generating a square wave. Both hooks share the same BNC hole on the panel.</li>
-									</ul>
+									</ul>	
 								</li>
 								<li>Attach the oscilloscope probe's ground clip to the <strong>ground banana plug</strong> on the front panel. All measurements on this bench share this common ground.</li>
 							</ol>
@@ -357,7 +352,7 @@
 
 							<h3>Step 1 &mdash; Physical Connections</h3>
 							<ol>
-								<li>Connect your external sine wave source to the terminal labeled <strong>&ldquo;Freq Meas&rdquo;</strong> on the front panel.</li>
+								<li>Connect your external sine wave source to the terminal labeled <strong>&ldquo;Freq Meas&rdquo;</strong> (or &ldquo;Frequency Measurement&rdquo;) on the front panel.</li>
 								<li>Connect the signal source's ground to the <strong>ground banana plug</strong> on the front panel.</li>
 								<li>Confirm the source is active and outputting a sine wave within the 1 kHz &ndash; 10 kHz range before proceeding.</li>
 							</ol>
@@ -366,7 +361,7 @@
 							<ol>
 								<li>Navigate to <strong>Main &gt; Mode Select &gt; Frequency Measurement</strong>.</li>
 								<li>Wait a moment for the LCD reading to stabilize.</li>
-								<li>Read the measured frequency value on the LCD. Press the knob to refresh the reading.</li>
+								<li>Read the measured frequency value on the LCD, refresh by pressing the knob.</li>
 							</ol>
 
 							<h3>Supported Input</h3>
@@ -380,59 +375,6 @@
 								<li>Use a clean sine wave from a stable source. A noisy or clipped signal may give inconsistent readings.</li>
 								<li>If no value appears on the LCD, verify the source is powered on and within the supported frequency range.</li>
 							</ul>
-						</article>
-
-						<!-- Videos -->
-						<article id="videos">
-							<h2 class="major">Video Tutorials</h2>
-
-							<p>Each video below walks through the full setup and operation of one component. Watch before your first use or refer back any time you need a refresher.</p>
-
-							<!-- Function Generator Tutorial -->
-							<div class="video-block">
-								<h3>Function Generator Tutorial</h3>
-								<!-- Replace VIDEO_ID with the YouTube video ID from your link, e.g. dQw4w9WgXcQ -->
-								<div class="video-wrapper">
-									<iframe src="https://www.youtube.com/watch?v=OHZlqK1FFQU" allowfullscreen></iframe>
-								</div>
-							</div>
-
-							<!-- Ohmmeter Tutorial -->
-							<div class="video-block">
-								<h3>Ohmmeter Tutorial</h3>
-								<!-- Replace VIDEO_ID with the YouTube video ID from your link -->
-								<div class="video-wrapper">
-									<iframe src="https://www.youtube.com/watch?v=N9J7GBgUMu4" allowfullscreen></iframe>
-								</div>
-							</div>
-
-							<!-- Voltmeter Tutorial -->
-							<div class="video-block">
-								<h3>Voltmeter Tutorial</h3>
-								<!-- Replace VIDEO_ID with the YouTube video ID from your link -->
-								<div class="video-wrapper">
-									<iframe src="https://www.youtube.com/watch?v=do8VjBWLxy8" allowfullscreen></iframe>
-								</div>
-							</div>
-
-							<!-- DC Reference Tutorial -->
-							<div class="video-block">
-								<h3>DC Reference Tutorial</h3>
-								<!-- Replace VIDEO_ID with the YouTube video ID from your link -->
-								<div class="video-wrapper">
-									<iframe src="https://www.youtube.com/watch?v=JA5frqoQdHk" allowfullscreen></iframe>
-								</div>
-							</div>
-
-							<!-- Frequency Measurement Tutorial -->
-							<div class="video-block">
-								<h3>Frequency Measurement Tutorial</h3>
-								<!-- Replace VIDEO_ID with the YouTube video ID from your link -->
-								<div class="video-wrapper">
-									<iframe src="https://www.youtube.com/watch?v=cv1beXg-n58" allowfullscreen></iframe>
-								</div>
-							</div>
-
 						</article>
 
 						<!-- Safety -->
@@ -464,8 +406,7 @@
 
 							<h3>Emergency Procedure</h3>
 							<ul>
-								<li>If the bench smokes, smells unusual, sparks, or behaves erratically &mdash; <strong>immediately disconnect power and step back.</strong></li>
-							</ul>
+								<li>If the bench smokes, smells unusual, sparks, or behaves erratically &mdash; <strong>immediately disconnect power and step back.</strong></li>							</ul>
 						</article>
 
 						<!-- Troubleshooting and FAQ -->
@@ -474,13 +415,13 @@
 
 							<h3>Common Problems</h3>
 							<ul>
-								<li><strong>LCD is on but nothing responds:</strong> Unplug and replug the Raspberry Pi. The program crashes on startup if the power supply was connected after the Pi — always plug the power cable in first.</li>
-								<li><strong>No waveform output / incorrect waveform:</strong> Verify Output is set to On and the correct type is selected. Confirm the probe tip is on the correct colored hook (green for sine, yellow for square).</li>
-								<li><strong>Voltmeter reading looks wrong:</strong> Confirm the selected source (External vs. Internal Reference) and check the banana plug connections at the Voltmeter terminal and ground.</li>
-								<li><strong>Ohmmeter reads &ldquo;inf ohm&rdquo;:</strong> No resistor detected. Check that both leads are securely hooked onto the yellow and blue hooks.</li>
-								<li><strong>Ohmmeter reading is unstable:</strong> Ensure the resistor is completely isolated from any powered circuit and that your fingers are not touching the hooks.</li>
-								<li><strong>No frequency reading:</strong> Confirm a sine wave is present at the Freq Meas terminal and within the 1 kHz &ndash; 10 kHz range. Set the input offset of the sine wave to 0 V. A higher amplitude signal generally gives more reliable readings.</li>
-								<li><strong>DC Reference output seems off:</strong> Navigate to Voltmeter &gt; Internal Reference to verify the live output, and check the banana cable connections at the DC Ref terminal and ground.</li>
+								<li><strong>LCD is on but nothing responds:</strong> Unplug and plug raspberry pi, the program crashed looking for an LCD that was off if you connected the power supply last.</li>
+								<li><strong>No waveform output/incorrect:</strong> verify Output is set to On and the correct waveform type is selected. Confirm the probe tip is on the correct colored hook (green for sine, yellow for square).</li>
+								<li><strong>Voltmeter reading looks wrong:</strong> confirm the selected source (External vs. Internal Reference) and check the banana plug connections at the Voltmeter terminal and ground.</li>
+								<li><strong>Ohmmeter reads &ldquo;inf ohm&rdquo;:</strong> no resistor is detected. Check that both leads are securely hooked onto the yellow and blue hooks.</li>
+								<li><strong>Ohmmeter reading is unstable:</strong> ensure the resistor is completely isolated from any powered circuit, and that your fingers are not touching the hooks.</li>
+								<li><strong>No frequency reading:</strong> confirm a sine wave is present at the Freq In terminal and within the 1 kHz &ndash; 10 kHz range. Also set the input offset of the sine wave to 0V. For this design higher amplitude is better.</li>
+								<li><strong>DC Reference output seems off:</strong> navigate to Voltmeter &gt; Internal Reference to verify the live output, and check the banana cable connections at the DC Ref terminal and ground.</li>
 							</ul>
 
 							<h3>FAQ</h3>
