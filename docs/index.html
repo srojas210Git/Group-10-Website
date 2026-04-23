@@ -187,7 +187,7 @@
 
 							<h3>Step 1 &mdash; Physical Connections</h3>
 							<ol>
-								<li>Connect a BNC cable from your oscilloscope to the BNC output port on the front panel of the bench.</li>
+								<li>Connect a BNC cable from your oscilloscope to the respective hook clip on the front panel of the bench.</li>
 								<li>Attach the oscilloscope's positive probe tip to the correct color-coded hook on the front panel:
 									<ul>
 										<li><strong>Sine wave &rarr; Green hook.</strong> Use this hook when generating a sine wave.</li>
@@ -352,7 +352,7 @@
 
 							<h3>Step 1 &mdash; Physical Connections</h3>
 							<ol>
-								<li>Connect your external sine wave source to the terminal labeled <strong>&ldquo;Freq In&rdquo;</strong> (or &ldquo;Frequency Measurement&rdquo;) on the front panel.</li>
+								<li>Connect your external sine wave source to the terminal labeled <strong>&ldquo;Freq Meas&rdquo;</strong> (or &ldquo;Frequency Measurement&rdquo;) on the front panel.</li>
 								<li>Connect the signal source's ground to the <strong>ground banana plug</strong> on the front panel.</li>
 								<li>Confirm the source is active and outputting a sine wave within the 1 kHz &ndash; 10 kHz range before proceeding.</li>
 							</ol>
@@ -361,7 +361,7 @@
 							<ol>
 								<li>Navigate to <strong>Main &gt; Mode Select &gt; Frequency Measurement</strong>.</li>
 								<li>Wait a moment for the LCD reading to stabilize.</li>
-								<li>Read the measured frequency value on the LCD.</li>
+								<li>Read the measured frequency value on the LCD, refresh by pressing the knob.</li>
 							</ol>
 
 							<h3>Supported Input</h3>
@@ -383,16 +383,17 @@
 
 							<h3>General Operating Environment</h3>
 							<ul>
-								<li>Operate only in dry, indoor environments. High humidity, extreme heat, or extreme cold can cause malfunctions and affect readings.</li>
+								<li>Operate only in dry, indoor environments.</li>
 								<li>Do not unplug, modify, or rewire the workbench in any way, especially while powered.</li>
 							</ul>
 
 							<h3>Power Supply &amp; Thermal Limits</h3>
 							<ul>
 								<li>Maximum recommended current on the &plusmn;12 V rails: <strong>60 mA</strong>. Absolute maximum: 1 A.</li>
-								<li>Maximum current per GPIO pin: <strong>16 mA</strong> &mdash; do not exceed this.</li>
-								<li>The power supply can become very hot under load. Do not touch internal components while powered.</li>
-								<li>Wait at least 5 minutes after unplugging before touching any internal components.</li>
+								<ul>
+									<li>Should not be an issue if using the provided power supply.</li>
+								</ul>
+								<li>The power supply can become hot under load. Do not touch internal components while powered.</li>
 							</ul>
 
 							<h3>Signal Input Limits</h3>
@@ -404,9 +405,7 @@
 
 							<h3>Emergency Procedure</h3>
 							<ul>
-								<li>If the bench smokes, smells unusual, sparks, or behaves erratically &mdash; <strong>immediately disconnect power and step back.</strong></li>
-								<li>Do not touch the circuit until at least 10 minutes have passed and all signs of active hazards are gone.</li>
-							</ul>
+								<li>If the bench smokes, smells unusual, sparks, or behaves erratically &mdash; <strong>immediately disconnect power and step back.</strong></li>							</ul>
 						</article>
 
 						<!-- Troubleshooting and FAQ -->
@@ -415,12 +414,12 @@
 
 							<h3>Common Problems</h3>
 							<ul>
-								<li><strong>LCD is on but nothing responds:</strong> check the encoder wiring and restart the system.</li>
-								<li><strong>No waveform output:</strong> verify Output is set to On and the correct waveform type is selected. Confirm the probe tip is on the correct colored hook (green for sine, yellow for square).</li>
+								<li><strong>LCD is on but nothing responds:</strong> Unplug and plug raspberry pi, the program crashed looking for an LCD that was off if you connected the power supply last.</li>
+								<li><strong>No waveform output/incorrect:</strong> verify Output is set to On and the correct waveform type is selected. Confirm the probe tip is on the correct colored hook (green for sine, yellow for square).</li>
 								<li><strong>Voltmeter reading looks wrong:</strong> confirm the selected source (External vs. Internal Reference) and check the banana plug connections at the Voltmeter terminal and ground.</li>
 								<li><strong>Ohmmeter reads &ldquo;inf ohm&rdquo;:</strong> no resistor is detected. Check that both leads are securely hooked onto the yellow and blue hooks.</li>
 								<li><strong>Ohmmeter reading is unstable:</strong> ensure the resistor is completely isolated from any powered circuit, and that your fingers are not touching the hooks.</li>
-								<li><strong>No frequency reading:</strong> confirm a sine wave is present at the Freq In terminal and within the 1 kHz &ndash; 10 kHz range.</li>
+								<li><strong>No frequency reading:</strong> confirm a sine wave is present at the Freq In terminal and within the 1 kHz &ndash; 10 kHz range. Also set the input offset of the sine wave to 0V. For this design higher amplitude is better.</li>
 								<li><strong>DC Reference output seems off:</strong> navigate to Voltmeter &gt; Internal Reference to verify the live output, and check the banana cable connections at the DC Ref terminal and ground.</li>
 							</ul>
 
