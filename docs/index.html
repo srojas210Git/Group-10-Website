@@ -69,11 +69,12 @@
 
 							<h3>Quick Start</h3>
 							<ol>
-								<li>Plug in the power cable <strong>first</strong>, then plug in the Raspberry Pi.</li>
-								<ul>
-									<li>Power cable plugs into back of device</li>
-									<li>USB C cable plugs into Raspberry Pi</li>
-								</ul>
+								<li>Plug in the power cable <strong>first</strong>, then plug in the Raspberry Pi.
+									<ul>
+										<li>Power cable plugs into the back of the device.</li>
+										<li>USB-C cable plugs into the Raspberry Pi.</li>
+									</ul>
+								</li>
 								<li>Wait for the LCD to finish startup and display <strong>Group 10 Test Bench</strong>.</li>
 								<li>Rotate the encoder to highlight <strong>Mode Select</strong>.</li>
 								<li>Press the encoder to enter the menu.</li>
@@ -182,19 +183,31 @@
 							<h2 class="major">Function Generator</h2>
 							<span class="image main"><img src="images/func_display.png" alt="Function generator display" /></span>
 
-							<p>The Function Generator produces either a zero-centered square wave or a positive-only sine wave. Connect your circuit to the high-impedance output terminal before enabling output.</p>
+							<p>The Function Generator produces either a zero-centered square wave or a positive-only sine wave. Set up your oscilloscope connections first, then configure the output through the menu.</p>
 
-							<h3>How to Use</h3>
+							<h3>Step 1 &mdash; Physical Connections</h3>
 							<ol>
-								<li>Navigate to <strong>Main &gt; Mode Select &gt; Function Generator</strong>.</li>
-								<li>Select <strong>Type</strong> and choose <strong>Square</strong> or <strong>Sine</strong>.</li>
-								<li>Select <strong>Frequency &gt; Input Frequency</strong> and use the encoder to set the desired value.</li>
-								<li>Select <strong>Amplitude &gt; Input Amplitude</strong> and dial in your peak voltage.</li>
-								<li>Select <strong>Output</strong> and choose <strong>On</strong>.</li>
-								<li>The LCD will display the live waveform settings while the output is active.</li>
+								<li>Connect a BNC cable from your oscilloscope to the BNC output port on the front panel of the bench.</li>
+								<li>Attach the oscilloscope's positive probe tip to the correct color-coded hook on the front panel:
+									<ul>
+										<li><strong>Sine wave &rarr; Green hook.</strong> Use this hook when generating a sine wave.</li>
+										<li><strong>Square wave &rarr; Yellow hook.</strong> Use this hook when generating a square wave. Both hooks share the same BNC hole on the panel.</li>
+									</ul>
+								</li>
+								<li>Attach the oscilloscope probe's ground clip to the <strong>ground banana plug</strong> on the front panel. All measurements on this bench share this common ground.</li>
 							</ol>
 
-							<h3>Square Wave</h3>
+							<h3>Step 2 &mdash; Configure and Enable Output</h3>
+							<ol>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; Function Generator</strong>.</li>
+								<li>Select <strong>Type</strong> and choose <strong>Square</strong> or <strong>Sine</strong> to match the hook you connected above.</li>
+								<li>Select <strong>Frequency &gt; Input Frequency</strong>, rotate the encoder to the desired value, and press to confirm.</li>
+								<li>Select <strong>Amplitude &gt; Input Amplitude</strong>, rotate to the desired peak voltage, and press to confirm.</li>
+								<li>Select <strong>Output</strong> and choose <strong>On</strong>. The LCD will show the active waveform settings.</li>
+								<li>Verify the waveform shape, frequency, and amplitude on your oscilloscope.</li>
+							</ol>
+
+							<h3>Square Wave Specs</h3>
 							<ul>
 								<li>Centered at 0 V (symmetric positive and negative swing)</li>
 								<li>Fixed 50% duty cycle</li>
@@ -202,7 +215,7 @@
 								<li>Amplitude adjustable up to &plusmn;10 V</li>
 							</ul>
 
-							<h3>Sine Wave</h3>
+							<h3>Sine Wave Specs</h3>
 							<ul>
 								<li>Positive voltage only (0 V to 10 V)</li>
 								<li>Amplitude adjustable in 0.625 V steps</li>
@@ -211,9 +224,9 @@
 
 							<h3>Important Notes</h3>
 							<ul>
-								<li>This output is high impedance &mdash; do not drive heavy loads.</li>
+								<li>This output is high impedance &mdash; do not drive heavy loads directly from it.</li>
 								<li>Never apply an external voltage into the function generator output terminals.</li>
-								<li>When leaving this mode via <strong>Back</strong> or <strong>Main</strong>, the output defaults to off.</li>
+								<li>When leaving this mode via <strong>Back</strong> or <strong>Main</strong>, the output defaults to off automatically.</li>
 							</ul>
 						</article>
 
@@ -222,27 +235,34 @@
 							<h2 class="major">Ohmmeter</h2>
 							<span class="image main"><img src="images/ohm.png" alt="Ohmmeter screen and resistor input" /></span>
 
-							<p>The Ohmmeter measures an external resistor and displays the value on the LCD. It autoranges within its supported range with no manual range selection needed.</p>
+							<p>The Ohmmeter measures an external resistor and displays the value and its tolerance on the LCD. It autoranges within its supported range with no manual range selection needed.</p>
+
+							<h3>Step 1 &mdash; Physical Connections</h3>
+							<ol>
+								<li>Locate the two hooked cables coming out of the ohmmeter port on the front panel &mdash; one <strong>yellow</strong> hook and one <strong>blue</strong> hook.</li>
+								<li>Connect your resistor across both hooks, one lead to yellow and one lead to blue. Either orientation works.</li>
+								<li>Make sure the resistor is completely removed from any other circuit before connecting it. <strong>Never measure a resistor that is connected to a powered circuit.</strong></li>
+							</ol>
+
+							<h3>Step 2 &mdash; Read the Measurement</h3>
+							<ol>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; Ohmmeter</strong>.</li>
+								<li>Press the encoder knob to trigger a fresh resistance reading.</li>
+								<li>The LCD will display the measured resistance and its tolerance (e.g., 1000 &Omega; &plusmn; Y &Omega;).</li>
+								<li>If no resistor is connected, the display will read <strong>inf ohm</strong> &mdash; this is normal and expected.</li>
+							</ol>
 
 							<h3>Measurement Range</h3>
 							<ul>
 								<li>500 &Omega; to 10 k&Omega; (autoranging)</li>
-								<li>The display also shows your measurement threshold and tolerance (e.g., 1000 &Omega; &plusmn; Y &Omega;)</li>
+								<li>Values outside this range may not read accurately</li>
 							</ul>
-
-							<h3>How to Use</h3>
-							<ol>
-								<li>Connect the unknown resistor to the labeled ohmmeter input terminals.</li>
-								<li>Navigate to <strong>Main &gt; Mode Select &gt; Ohmmeter</strong>.</li>
-								<li>Wait for the reading to stabilize on the LCD.</li>
-								<li>Read the displayed resistance value.</li>
-							</ol>
 
 							<h3>Best Practices</h3>
 							<ul>
 								<li>Only measure resistors within the 500 &Omega; &ndash; 10 k&Omega; range.</li>
-								<li><strong>Never connect the ohmmeter to a live circuit.</strong> The component must be isolated and fully depowered before measuring.</li>
-								<li>Wait briefly for the reading to settle before recording the value.</li>
+								<li>Wait briefly after pressing the knob for the reading to stabilize before recording the value.</li>
+								<li>Do not touch both hooks simultaneously while measuring &mdash; body resistance will affect the reading.</li>
 							</ul>
 						</article>
 
@@ -251,29 +271,36 @@
 							<h2 class="major">Voltmeter</h2>
 							<span class="image main"><img src="images/volt.png" alt="Voltmeter screen and voltage input" /></span>
 
-							<p>The Voltmeter measures DC voltage and displays the result alongside a tolerance value (e.g., 2.5 V &plusmn; 0.3125 V). It can read an external circuit or verify the internal DC Reference output.</p>
+							<p>The Voltmeter measures DC voltage and displays the result alongside a tolerance value (e.g., 2.5 V &plusmn; 0.3125 V). It can read an external voltage source or verify the bench's internal DC Reference output.</p>
 
-							<h3>Measurement Range</h3>
-							<ul>
-								<li>&minus;5 V to +5 V DC</li>
-							</ul>
+							<h3>Step 1 &mdash; Physical Connections (External Mode)</h3>
+							<ol>
+								<li>Take your DC power supply and connect its <strong>ground lead to the ground banana plug</strong> on the front panel.</li>
+								<li>Connect the <strong>positive lead to the terminal labeled &ldquo;Voltmeter&rdquo;</strong> on the front panel.</li>
+								<li>Confirm the supply voltage is within the &minus;5 V to +5 V range before proceeding.</li>
+							</ol>
+
+							<h3>Step 2 &mdash; Read the Measurement</h3>
+							<ol>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; Voltmeter</strong>.</li>
+								<li>Select <strong>Source</strong> and choose <strong>External</strong>.</li>
+								<li>Press the encoder knob to take a reading.</li>
+								<li>The LCD will display the measured voltage and its tolerance.</li>
+							</ol>
 
 							<h3>Source Options</h3>
 							<ul>
-								<li><strong>External:</strong> measures a voltage at the external voltmeter input probes</li>
-								<li><strong>Internal Reference:</strong> reroutes the voltmeter to read the DC Reference output through the internal path</li>
+								<li><strong>External:</strong> reads a voltage applied at the Voltmeter terminal on the front panel.</li>
+								<li><strong>Internal Reference:</strong> reroutes the voltmeter to read the DC Reference output through the internal signal path. No external wiring needed for this mode.</li>
 							</ul>
 
-							<h3>How to Use</h3>
-							<ol>
-								<li>Navigate to <strong>Main &gt; Mode Select &gt; Voltmeter</strong>.</li>
-								<li>Select <strong>Source</strong> and choose <strong>External</strong> or <strong>Internal Reference</strong>.</li>
-								<li>If using External, connect your signal to the labeled voltmeter input.</li>
-								<li>Read the live voltage and tolerance on the LCD.</li>
-							</ol>
+							<h3>Measurement Range</h3>
+							<ul>
+								<li>&minus;5 V to +5 V DC only. Do not exceed this range.</li>
+							</ul>
 
 							<h3>Note</h3>
-							<p>If <strong>Internal Reference</strong> is selected, the interface may navigate into the DC Reference path so you can set and verify the internal source value. Pressing a value in this path does not set it &mdash; this is expected behavior.</p>
+							<p>If <strong>Internal Reference</strong> is selected, the interface may navigate into the DC Reference path so you can set and verify the internal source value. Pressing a value in that sub-path does not set it &mdash; this is expected behavior.</p>
 						</article>
 
 						<!-- DC Reference -->
@@ -281,26 +308,38 @@
 							<h2 class="major">DC Reference</h2>
 							<span class="image main"><img src="images/dc.png" alt="DC reference control page" /></span>
 
-							<p>The DC Reference generates a precise, selectable DC voltage that can be verified live with the internal voltmeter. This is a high-impedance reference source and is not designed to supply current to power heavy loads.</p>
+							<p>The DC Reference generates a precise, selectable DC voltage. You can monitor the output on an external voltmeter and also verify it internally through the bench's own voltmeter display.</p>
+
+							<h3>Step 1 &mdash; Physical Connections</h3>
+							<ol>
+								<li>Using banana cables, connect an external voltmeter (or multimeter set to DC voltage) to the terminal labeled <strong>&ldquo;DC Ref&rdquo;</strong> on the front panel.</li>
+								<li>Connect the external voltmeter's ground lead to the <strong>ground banana plug</strong> on the front panel.</li>
+								<li>Your external voltmeter will display the live output voltage once the reference is enabled.</li>
+							</ol>
+
+							<h3>Step 2 &mdash; Set the Voltage and Enable Output</h3>
+							<ol>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; DC Reference</strong>.</li>
+								<li>Select <strong>Voltage Value Input</strong>. Rotate the encoder to scroll through the available levels (&minus;5 V to +5 V in 0.625 V steps).</li>
+								<li>Press the encoder to confirm and set the displayed voltage.</li>
+								<li>Navigate down to <strong>Output</strong> and select <strong>On</strong>. The reference voltage is now active at the DC Ref terminal.</li>
+							</ol>
+
+							<h3>Step 3 &mdash; Verify the Output</h3>
+							<ol>
+								<li>Your external voltmeter connected to the DC Ref terminal will display the output voltage directly.</li>
+								<li>To also verify internally on the bench, navigate to <strong>Voltmeter &gt; Source &gt; Internal Reference</strong>. The bench's own voltmeter will read the DC Reference output through the internal path and display it on the LCD.</li>
+							</ol>
 
 							<h3>Output Range</h3>
 							<ul>
 								<li>&minus;5 V to +5 V, adjustable in 0.625 V steps</li>
 							</ul>
 
-							<h3>How to Use</h3>
-							<ol>
-								<li>Navigate to <strong>Main &gt; Mode Select &gt; DC Reference</strong>.</li>
-								<li>Select <strong>Voltage Value Input</strong> and rotate the encoder to your desired level.</li>
-								<li>Press the encoder to confirm the value.</li>
-								<li>Select <strong>Output</strong> and choose <strong>On</strong>.</li>
-								<li>The UI will use the internal voltmeter to display the live output voltage for verification.</li>
-							</ol>
-
 							<h3>Important Notes</h3>
 							<ul>
-								<li>This is a reference output, not a power supply. Do not drive heavy loads.</li>
-								<li>When leaving this mode via <strong>Back</strong> or <strong>Main</strong>, the output defaults to off.</li>
+								<li>This is a <strong>high-impedance reference output</strong>, not a power supply. Do not use it to drive loads or power other circuits.</li>
+								<li>When leaving this mode via <strong>Back</strong> or <strong>Main</strong>, the output defaults to off automatically.</li>
 							</ul>
 						</article>
 
@@ -311,25 +350,30 @@
 
 							<p>This mode measures the frequency of an incoming external sine wave and displays the live reading on the LCD.</p>
 
+							<h3>Step 1 &mdash; Physical Connections</h3>
+							<ol>
+								<li>Connect your external sine wave source to the terminal labeled <strong>&ldquo;Freq In&rdquo;</strong> (or &ldquo;Frequency Measurement&rdquo;) on the front panel.</li>
+								<li>Connect the signal source's ground to the <strong>ground banana plug</strong> on the front panel.</li>
+								<li>Confirm the source is active and outputting a sine wave within the 1 kHz &ndash; 10 kHz range before proceeding.</li>
+							</ol>
+
+							<h3>Step 2 &mdash; Read the Frequency</h3>
+							<ol>
+								<li>Navigate to <strong>Main &gt; Mode Select &gt; Frequency Measurement</strong>.</li>
+								<li>Wait a moment for the LCD reading to stabilize.</li>
+								<li>Read the measured frequency value on the LCD.</li>
+							</ol>
+
 							<h3>Supported Input</h3>
 							<ul>
 								<li>External sine wave only</li>
 								<li>Calibrated for 1 kHz to 10 kHz</li>
 							</ul>
 
-							<h3>How to Use</h3>
-							<ol>
-								<li>Connect the external sine wave source to the labeled frequency measurement input terminal.</li>
-								<li>Navigate to <strong>Main &gt; Mode Select &gt; Frequency Measurement</strong>.</li>
-								<li>Wait for the LCD reading to stabilize.</li>
-								<li>Read the measured frequency value.</li>
-							</ol>
-
 							<h3>Best Practices</h3>
 							<ul>
-								<li>Use a clean sine wave from a known source.</li>
-								<li>Confirm the signal is at the correct input terminal.</li>
-								<li>If no value appears, verify the source is active and within the 1 kHz &ndash; 10 kHz range.</li>
+								<li>Use a clean sine wave from a stable source. A noisy or clipped signal may give inconsistent readings.</li>
+								<li>If no value appears on the LCD, verify the source is powered on and within the supported frequency range.</li>
 							</ul>
 						</article>
 
@@ -372,11 +416,12 @@
 							<h3>Common Problems</h3>
 							<ul>
 								<li><strong>LCD is on but nothing responds:</strong> check the encoder wiring and restart the system.</li>
-								<li><strong>No waveform output:</strong> verify Output is set to On and the correct waveform type is selected.</li>
-								<li><strong>Voltmeter reading looks wrong:</strong> confirm the selected source (External vs. Internal Reference) and check the signal connection.</li>
-								<li><strong>Ohmmeter reading is unstable:</strong> ensure the resistor is firmly connected and completely isolated from any powered circuit.</li>
-								<li><strong>No frequency reading:</strong> confirm a sine wave is present at the correct input terminal within the 1 kHz &ndash; 10 kHz range.</li>
-								<li><strong>DC Reference output seems off:</strong> use the Internal Reference voltmeter path to verify the actual output voltage.</li>
+								<li><strong>No waveform output:</strong> verify Output is set to On and the correct waveform type is selected. Confirm the probe tip is on the correct colored hook (green for sine, yellow for square).</li>
+								<li><strong>Voltmeter reading looks wrong:</strong> confirm the selected source (External vs. Internal Reference) and check the banana plug connections at the Voltmeter terminal and ground.</li>
+								<li><strong>Ohmmeter reads &ldquo;inf ohm&rdquo;:</strong> no resistor is detected. Check that both leads are securely hooked onto the yellow and blue hooks.</li>
+								<li><strong>Ohmmeter reading is unstable:</strong> ensure the resistor is completely isolated from any powered circuit, and that your fingers are not touching the hooks.</li>
+								<li><strong>No frequency reading:</strong> confirm a sine wave is present at the Freq In terminal and within the 1 kHz &ndash; 10 kHz range.</li>
+								<li><strong>DC Reference output seems off:</strong> navigate to Voltmeter &gt; Internal Reference to verify the live output, and check the banana cable connections at the DC Ref terminal and ground.</li>
 							</ul>
 
 							<h3>FAQ</h3>
@@ -387,6 +432,7 @@
 								<li><strong>What does holding the encoder do?</strong> Holding for 3 seconds returns you to the start menu from anywhere in the menu.</li>
 								<li><strong>Why won't a value set when I select DC Reference from the Voltmeter menu?</strong> That path only redirects the measurement source &mdash; it does not set a voltage value. This is expected behavior.</li>
 								<li><strong>Can the DC Reference power a circuit?</strong> No. It is a high-impedance reference only and is not designed to drive loads.</li>
+								<li><strong>Which ground do I use?</strong> All measurements on this bench share a single common ground via the ground banana plug on the front panel.</li>
 							</ul>
 						</article>
 
